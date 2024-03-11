@@ -6,6 +6,7 @@ hızlı bir şekilde terminal, metro durakları gibi toplu taşıma istasyonlar�
 panelden görülebilmesi ve aranabilmesini sağlayan bir konumlama aracıdır.
 
 Vite, React.js, Javascript, Bootstrap, Context API, MapBox GL gibi teknolojileri kullanmaktadır.
+Bursa Büyükşehir Belediyesi Açık Yeşil Veri Platformu verileri kullanılarak hazırlanmıştır.
 
 -----------------------
 
