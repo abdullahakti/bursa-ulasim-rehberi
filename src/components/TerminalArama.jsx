@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Map, { Marker, useMap } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import PlaceIcon from "@mui/icons-material/Place";
 import { utmToGeographic } from "../utils/mapUtils";
 
 const TerminalArama = () => {
@@ -18,7 +17,7 @@ const TerminalArama = () => {
   // JSON dosyasından tüm verileri alma
   useEffect(() => {
     // Terminal verilerinin olduğu GeoJSON dosya yolunu değişkene atama
-    const jsonTerminal = "src/data/poi_guncel_terminal.geojson";
+    const jsonTerminal = "/src/data/poi_guncel_terminal.geojson";
 
     // GeoJSON dosyasını okuma
     fetch(jsonTerminal)

@@ -2,7 +2,7 @@ import React from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import TerminalArama from "./TerminalArama";
-import MetroIstasyonlari from "../pages/MetroIstasyonlari";
+import MetroIstasyonlari from "./MetroIstasyonlari";
 
 const Sidebar = () => {
   return (

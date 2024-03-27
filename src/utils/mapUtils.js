@@ -32,8 +32,6 @@ export const utmToGeographic = (utmX, utmY, utmZone) => {
       Math.sin(4.0 * mu) +
     ((151.0 * Math.pow(e, 3)) / 96.0) * Math.sin(6.0 * mu);
 
-  const phi1 = (phi1Rad * 180.0) / Math.PI;
-
   const N1 = a / Math.sqrt(1.0 - Math.pow(e * Math.sin(phi1Rad), 2.0));
   const T1 = Math.pow(Math.tan(phi1Rad), 2.0);
   const C1 = eccPrimeSquared * Math.pow(Math.cos(phi1Rad), 2.0);
@@ -72,8 +70,8 @@ export const utmToGeographic = (utmX, utmY, utmZone) => {
     Math.cos(phi1Rad);
 
   const latLon = {
-    latitude: lat * (180.0 / Math.PI),
-    longitude: lon * (180.0 / Math.PI) + (6 * utmZone - 183.0),
+    latitude: lat * (180.0 / Math.PI) - (utmZone - 29.0976),
+    longitude: lon * (180.0 / Math.PI) + (6 * utmZone - 185.8857),
   };
 
   return latLon;
