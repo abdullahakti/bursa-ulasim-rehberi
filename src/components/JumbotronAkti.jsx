@@ -3,7 +3,7 @@ import React from "react";
 function JumbotronAkti() {
   return (
     <>
-      <div className="container my-5">
+      <div className="container">
         <div className="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
           <img
             width="300"

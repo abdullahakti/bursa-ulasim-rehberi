@@ -38,9 +38,9 @@ function ThemeIcon(props) {
   return (
     <>
       {theme === "light" ? (
-        <button onClick={handleTheme} className="btn"> {lightTheme} Light </button>
+        <button onClick={handleTheme} className="btn"> {lightTheme} Koyu Tema </button>
       ) : (
-        <button onClick={handleTheme} className="btn"> {darkTheme} Dark </button>
+        <button onClick={handleTheme} className="btn"> {darkTheme} Açık Tema </button>
       )}
     </>
   );

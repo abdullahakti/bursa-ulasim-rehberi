@@ -10,7 +10,7 @@ function Navbar() {
         data-bs-theme="dark"
       >
         <div className="container container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             Bursa Ulaşım Rehberi
           </a>
           <button
@@ -26,7 +26,6 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <div className="navbar-nav ms-auto">
-                <NavLink className="nav-link" to="/">Ana Sayfa</NavLink>
                 <NavLink className="nav-link" to="/hakkimizda">Hakkımızda</NavLink>
                 <NavLink className="nav-link" to="/iletisim">İletişim</NavLink>
                 <ThemeIcon />
