@@ -50,19 +50,25 @@ const MetroIstasyonlari = () => {
   return (
     <>
       <div className="row">
-        <div className="col-6">
-          <h1>İstasyon Arama</h1>
-          <input
-            type="text"
-            placeholder="Arama yap..."
-            value={aramaTerimi}
-            onChange={(e) => setAramaTerimi(e.target.value)}
-          />
+      <div className="col-6">
+          <div className="row d-flex align-items-center">
+            <div className="col-sm-7">
+              <label htmlFor=""><strong>Bursa&apos;daki metro istasyonlarını arayın : </strong></label>
+            </div>
+            <div className="col-sm">
+              <input
+                className="form-control sr-only"
+                type="text"
+                placeholder="Arama yap..."
+                value={aramaTerimi}
+                onChange={(e) => setAramaTerimi(e.target.value)}
+              />
+            </div>
+          </div>
+          <br />
           <ul>
             {filtrelenmisTerminalListesi.map((terminal, index) => (
-              <li key={index}>
-                {terminal.properties.ADI}
-              </li>
+              <li key={index}>{terminal.properties.ADI}</li>
             ))}
           </ul>
         </div>
