@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import Map, { Marker, useMap } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -51,18 +53,21 @@ const TerminalArama = () => {
     <>
       <div className="row">
         <div className="col-6">
-          <h1>Terminal Arama</h1>
+          <div className="d-flex">
+          <h4>Terminal Arama</h4>
           <input
+            className="form-control mb-2"
             type="text"
             placeholder="Arama yap..."
             value={aramaTerimi}
             onChange={(e) => setAramaTerimi(e.target.value)}
           />
+          </div>
+          <br />
           <ul>
             {filtrelenmisTerminalListesi.map((terminal, index) => (
               <li key={index}>
-                {terminal.properties.ADI},<br />
-                {terminal.properties.ALT_KATEGORI}
+                {terminal.properties.ADI}
               </li>
             ))}
           </ul>
@@ -70,6 +75,7 @@ const TerminalArama = () => {
         <div className="col-6">
           <Map
             id="mymap"
+            // eslint-disable-next-line no-undef
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             initialViewState={{
               longitude: 29.060965,

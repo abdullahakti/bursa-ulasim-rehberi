@@ -1,4 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
+// eslint-disable-next-line no-unused-vars
 import Map, { Marker, useMap } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { utmToGeographic } from "../utils/mapUtils";
@@ -59,8 +61,7 @@ const MetroIstasyonlari = () => {
           <ul>
             {filtrelenmisTerminalListesi.map((terminal, index) => (
               <li key={index}>
-                {terminal.properties.ADI},<br />
-                {terminal.properties.ALT_KATEGORI}
+                {terminal.properties.ADI}
               </li>
             ))}
           </ul>
@@ -68,6 +69,7 @@ const MetroIstasyonlari = () => {
         <div className="col-6">
           <Map
             id="mymap"
+            // eslint-disable-next-line no-undef
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             initialViewState={{
               longitude: 29.060965,

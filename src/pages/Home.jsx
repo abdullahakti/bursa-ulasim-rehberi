@@ -1,12 +1,15 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import JumbotronAkti from "../components/JumbotronAkti";
-import Sidebar from "../components/Sidebar";
+import ContentArea from "../components/ContentArea";
+import "./Home.css";
 
 function Home() {
   return (
     <>
       <JumbotronAkti />
-      <Sidebar />
+      <div className="gap"></div>
+      <ContentArea />
     </>
   );
 }
