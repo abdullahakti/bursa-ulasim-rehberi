@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import Map, { Marker, useMap } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { utmToGeographic } from "../utils/mapUtils";
+import { ed50ToWGS84 } from "../utils/coordinateUtils";
+
+import { jsonTerminal } from "/src/data/poi_guncel_terminal";
 
 const TerminalArama = () => {
   const { mymap } = useMap();
@@ -18,17 +21,8 @@ const TerminalArama = () => {
 
   // JSON dosyasından tüm verileri alma
   useEffect(() => {
-    // Terminal verilerinin olduğu GeoJSON dosya yolunu değişkene atama
-    const jsonTerminal = "/src/data/poi_guncel_terminal.geojson";
-
-    // GeoJSON dosyasını okuma
-    fetch(jsonTerminal)
-      .then((response) => response.json())
-      .then((data) => {
-        setTerminalListesi(data.features);
-        setFiltrelenmisTerminalListesi(data.features); // Başlangıçta filtresiz olarak tüm terminalleri göster
-      })
-      .catch((error) => console.error("Terminal verileri alınamadı: ", error));
+    setTerminalListesi(jsonTerminal.features);
+    setFiltrelenmisTerminalListesi(jsonTerminal.features); // Başlangıçta
   }, []);
 
   // Arama terimine göre terminal verilerini filtrele
@@ -55,7 +49,9 @@ const TerminalArama = () => {
         <div className="col-6">
           <div className="row d-flex align-items-center">
             <div className="col-sm-7">
-              <label htmlFor=""><strong>İlçe otobüs terminallerini arayın : </strong></label>
+              <label htmlFor="">
+                <strong>İlçe otobüs terminallerini arayın : </strong>
+              </label>
             </div>
             <div className="col-sm">
               <input

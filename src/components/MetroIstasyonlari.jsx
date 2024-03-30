@@ -5,6 +5,8 @@ import Map, { Marker, useMap } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { utmToGeographic } from "../utils/mapUtils";
 
+import { jsonMetro } from "/src/data/poi_guncel_metro_istasyonlari";
+
 const MetroIstasyonlari = () => {
   const [terminalListesi, setTerminalListesi] = useState([]);
   const [aramaTerimi, setAramaTerimi] = useState("");
@@ -16,17 +18,8 @@ const MetroIstasyonlari = () => {
 
   // JSON dosyasından tüm verileri alma
   useEffect(() => {
-    // Terminal verilerinin olduğu GeoJSON dosya yolunu değişkene atama
-    const jsonTerminal = "src/data/poi_guncel_metro_istasyonlari.geojson";
-
-    // GeoJSON dosyasını okuma
-    fetch(jsonTerminal)
-      .then((response) => response.json())
-      .then((data) => {
-        setTerminalListesi(data.features);
-        setFiltrelenmisTerminalListesi(data.features); // Başlangıçta filtresiz olarak tüm istasyonları göster
-      })
-      .catch((error) => console.error("İstasyon verileri alınamadı: ", error));
+    setTerminalListesi(jsonMetro.features);
+    setFiltrelenmisTerminalListesi(jsonMetro.features); // Başlangıçta
   }, []);
 
   // Arama terimine göre istasyon verilerini filtrele
@@ -50,10 +43,12 @@ const MetroIstasyonlari = () => {
   return (
     <>
       <div className="row">
-      <div className="col-6">
+        <div className="col-6">
           <div className="row d-flex align-items-center">
             <div className="col-sm-7">
-              <label htmlFor=""><strong>Bursa&apos;daki metro istasyonlarını arayın : </strong></label>
+              <label htmlFor="">
+                <strong>Bursa&apos;daki metro istasyonlarını arayın : </strong>
+              </label>
             </div>
             <div className="col-sm">
               <input
